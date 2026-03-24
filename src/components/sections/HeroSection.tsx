@@ -1,10 +1,11 @@
-import Image from "next/image";
 import { portfolio } from "@/data/portfolio";
 import { NeoLinkButton } from "@/components/ui/NeoLinkButton";
 
 export function HeroSection() {
   const [firstName, ...restName] = portfolio.name.split(" ");
   const lastName = restName.join(" ");
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const profileImageSrc = `${basePath}/profile.jpeg`;
 
   return (
     <section id="home" className="neo-frame relative overflow-hidden p-7 sm:p-12 lg:p-16">
@@ -47,14 +48,7 @@ export function HeroSection() {
         <aside className="self-end border-4 border-black bg-white p-6 shadow-[10px_10px_0_0_#000]">
           <div className="mb-5 border-4 border-black bg-black p-1">
             <div className="relative aspect-square w-full overflow-hidden border-2 border-black bg-zinc-900">
-              <Image
-                src="/profile.jpeg"
-                alt="Portrait of Aditya Dosapati"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 320px, 360px"
-                priority
-              />
+              <img src={profileImageSrc} alt="Portrait of Aditya Dosapati" className="h-full w-full object-cover" />
             </div>
           </div>
           <p className="font-mono text-[11px] uppercase tracking-[0.16em]">Status</p>

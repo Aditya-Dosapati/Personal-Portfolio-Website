@@ -8,6 +8,9 @@ const shouldUseRepoBasePath = isGithubActions && repositoryName.length > 0 && !i
 const nextConfig: NextConfig = {
   reactCompiler: true,
   output: "export",
+  env: {
+    NEXT_PUBLIC_BASE_PATH: shouldUseRepoBasePath ? `/${repositoryName}` : "",
+  },
   images: {
     unoptimized: true,
   },
