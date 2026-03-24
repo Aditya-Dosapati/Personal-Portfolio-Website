@@ -1,0 +1,513 @@
+@import "tailwindcss";
+
+:root {
+  --background: #10161d;
+  --foreground: #f4f0e6;
+  --ink: #000000;
+  --paper: #1b2731;
+  --paper-soft: #223340;
+  --yellow: #f4c94f;
+  --cyan: #51ccc2;
+  --red: #f27e64;
+  --cream: #f3ecdc;
+  --space-2xs: clamp(0.4rem, 0.4vw, 0.55rem);
+  --space-xs: clamp(0.65rem, 0.8vw, 0.9rem);
+  --space-sm: clamp(0.95rem, 1.1vw, 1.3rem);
+  --space-md: clamp(1.3rem, 1.7vw, 1.9rem);
+  --space-lg: clamp(1.8rem, 2.7vw, 3rem);
+  --space-xl: clamp(2.6rem, 4vw, 4.4rem);
+  --space-2xl: clamp(3.8rem, 6.2vw, 6.8rem);
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 10%, rgba(244, 201, 79, 0.22) 0 14%, transparent 15%),
+    radial-gradient(circle at 90% 16%, rgba(81, 204, 194, 0.2) 0 12%, transparent 13%),
+    radial-gradient(circle at 22% 88%, rgba(242, 126, 100, 0.16) 0 15%, transparent 16%),
+    linear-gradient(170deg, #141b24 0%, var(--background) 52%, #0f151b 100%);
+  color: var(--foreground);
+  font-family: var(--font-space-mono), "Courier New", monospace;
+  line-height: 1.48;
+  letter-spacing: 0.004em;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), Impact, "Arial Black", sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  border-radius: 0;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(to right, #000 2px, transparent 2px),
+    linear-gradient(to bottom, #000 2px, transparent 2px);
+  background-size: 36px 36px;
+}
+
+.neo-grid-fade {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at center, black 38%, transparent 82%);
+}
+
+.neo-orb {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border: 4px solid #000;
+  box-shadow: 12px 12px 0 0 #000;
+  animation: orb-tick 2.8s linear infinite;
+  opacity: 0.15;
+}
+
+.neo-orb-cyan {
+  background: var(--cyan);
+}
+
+.neo-orb-red {
+  background: var(--red);
+  animation-delay: -4s;
+}
+
+.neo-orb-yellow {
+  background: var(--yellow);
+  animation-delay: -8s;
+}
+
+.neo-divider-track {
+  border: 2px solid #000;
+}
+
+.neo-divider-scroll {
+  display: inline-block;
+  min-width: 200%;
+  animation: divider-slide 26s linear infinite;
+}
+
+.neo-marquee {
+  display: inline-block;
+  min-width: 200%;
+  animation: divider-slide 24s linear infinite;
+}
+
+.neo-noise {
+  background-image:
+    linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.08) 25%, rgba(0, 0, 0, 0.08) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.08) 75%, rgba(0, 0, 0, 0.08) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.08) 25%, rgba(0, 0, 0, 0.08) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.08) 75%, rgba(0, 0, 0, 0.08) 76%, transparent 77%, transparent);
+  background-size: 24px 24px;
+}
+
+.neo-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  position: relative;
+  padding-inline: clamp(0.25rem, 0.9vw, 0.9rem);
+}
+
+.neo-section:nth-of-type(even) {
+  --section-shift-x: -24px;
+}
+
+.neo-section:nth-of-type(odd) {
+  --section-shift-x: 24px;
+}
+
+.neo-section > * {
+  max-width: min(100%, 84rem);
+}
+
+.neo-heading {
+  display: inline-block;
+  width: fit-content;
+  border: 4px solid #000;
+  background: var(--yellow);
+  padding: 0.9rem 1.4rem;
+  font-size: clamp(2.35rem, 4.8vw, 5rem);
+  line-height: 1;
+  box-shadow: 10px 10px 0 0 #000;
+  transform: rotate(-1.1deg);
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.neo-heading::after {
+  content: "";
+  display: block;
+  width: 64%;
+  height: 0.45rem;
+  border-top: 3px solid #000;
+  margin-top: 0.45rem;
+}
+
+.neo-frame {
+  border: 4px solid #000;
+  background: var(--paper);
+  color: var(--foreground);
+  box-shadow: 12px 12px 0 0 #000;
+}
+
+.neo-kicker {
+  font-family: var(--font-space-mono), "Courier New", monospace;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+.neo-intro-strip {
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0 0 #000;
+  padding: 0.6rem 0.8rem;
+  font-family: var(--font-space-mono), "Courier New", monospace;
+  font-size: 0.69rem;
+  text-transform: uppercase;
+  letter-spacing: 0.17em;
+  line-height: 1.5;
+}
+
+.neo-metric {
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  line-height: 0.9;
+  font-family: var(--font-display), Impact, "Arial Black", sans-serif;
+}
+
+.neo-btn {
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #000;
+  color: inherit;
+  box-shadow: 7px 7px 0 0 #000;
+  transition: transform 160ms linear, box-shadow 160ms linear, background-color 180ms ease-out, color 180ms ease-out;
+}
+
+.neo-btn::after {
+  content: "";
+  position: absolute;
+  left: 0.45rem;
+  right: 0.45rem;
+  bottom: 0.34rem;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0.28);
+  transform-origin: left;
+  transition: transform 160ms linear;
+}
+
+.neo-btn:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 0 #000;
+}
+
+.neo-btn:hover::after {
+  transform: scaleX(1);
+}
+
+.neo-btn:active {
+  transform: scale(0.96);
+  box-shadow: none;
+  filter: invert(0.02);
+}
+
+.neo-heading-reveal,
+.neo-line-reveal {
+  display: block;
+  transform: translateY(100%);
+  animation: text-rise 220ms ease-out forwards;
+}
+
+.neo-line-reveal:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.neo-scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: reveal-up 240ms ease-out forwards;
+  animation-timeline: view();
+  animation-range: entry 12% cover 34%;
+}
+
+.neo-scroll-slide {
+  opacity: 0;
+  transform: translateX(var(--section-shift-x, 22px));
+  animation: reveal-slide 260ms ease-out forwards;
+  animation-timeline: view();
+  animation-range: entry 12% cover 30%;
+}
+
+.neo-grid-2 > *,
+.neo-grid-3 > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: reveal-up 220ms ease-out forwards;
+  animation-timeline: view();
+  animation-range: entry 15% cover 34%;
+}
+
+.neo-grid-2 > *:nth-child(1),
+.neo-grid-3 > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.neo-grid-2 > *:nth-child(2),
+.neo-grid-3 > *:nth-child(2) {
+  animation-delay: 70ms;
+}
+
+.neo-grid-2 > *:nth-child(3),
+.neo-grid-3 > *:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.neo-grid-2 > *:nth-child(4),
+.neo-grid-3 > *:nth-child(4) {
+  animation-delay: 170ms;
+}
+
+.neo-grid-2 > *:nth-child(5),
+.neo-grid-3 > *:nth-child(5) {
+  animation-delay: 220ms;
+}
+
+.neo-grid-2 > *:nth-child(6),
+.neo-grid-3 > *:nth-child(6) {
+  animation-delay: 270ms;
+}
+
+.neo-frame,
+.neo-intro-strip,
+.neo-topbar,
+footer.neo-frame {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: reveal-up 220ms ease-out forwards;
+}
+
+.neo-frame {
+  animation-delay: 40ms;
+}
+
+.neo-topbar {
+  animation-delay: 0ms;
+}
+
+.neo-intro-strip {
+  animation-delay: 80ms;
+}
+
+.section-tag {
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  border: 3px solid #000;
+  padding: 0.22rem 0.52rem;
+  font-family: var(--font-space-mono), "Courier New", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  background: var(--cyan);
+  transform: rotate(1.8deg);
+  z-index: 20;
+}
+
+.neo-grid-2 {
+  display: grid;
+  gap: clamp(1.45rem, 2.4vw, 2.7rem);
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.neo-grid-3 {
+  display: grid;
+  gap: clamp(1.15rem, 1.9vw, 2rem);
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.neo-panel {
+  border: 4px solid #000;
+  background: var(--paper);
+  color: var(--foreground);
+  box-shadow: 10px 10px 0 0 #000;
+}
+
+.bg-yellow-300 {
+  background-color: var(--yellow) !important;
+  color: #101010;
+}
+
+.bg-cyan-300 {
+  background-color: var(--cyan) !important;
+  color: #101010;
+}
+
+.bg-red-300 {
+  background-color: var(--red) !important;
+  color: #101010;
+}
+
+.bg-red-200 {
+  background-color: #f19a83 !important;
+  color: #101010;
+}
+
+.bg-white {
+  background-color: var(--cream) !important;
+  color: #171717;
+}
+
+.bg-zinc-900 {
+  background-color: var(--paper-soft) !important;
+  color: #f6f3ea !important;
+}
+
+.bg-black {
+  background-color: #10161c !important;
+  color: #f6f3ea;
+}
+
+.pulse-tape {
+  animation: tape-wiggle 1.8s linear infinite;
+}
+
+@keyframes orb-tick {
+  0%,
+  47% {
+    transform: translate3d(0, 0, 0);
+  }
+  50%,
+  97% {
+    transform: translate3d(-6px, -6px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes divider-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes tape-wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-1deg) translateY(-2px);
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-slide {
+  from {
+    opacity: 0;
+    transform: translateX(var(--section-shift-x, 22px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes text-rise {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.font-mono {
+  font-family: var(--font-mono), "Courier New", monospace;
+}
+
+.neo-section-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.neo-topbar {
+  margin-bottom: var(--space-2xl);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 4px solid #000;
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .neo-heading {
+    transform: none;
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .neo-intro-strip {
+    font-size: 0.63rem;
+    letter-spacing: 0.13em;
+  }
+
+  .section-tag {
+    right: 10px;
+    top: -14px;
+  }
+
+  .neo-orb {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+@media (min-width: 768px) {
+  .neo-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .neo-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
