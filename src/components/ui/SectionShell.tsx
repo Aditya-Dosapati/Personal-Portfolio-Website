@@ -7,10 +7,9 @@ type SectionShellProps = {
   children: ReactNode;
 };
 
-export function SectionShell({ id, title, tag, children }: SectionShellProps) {
+export function SectionShell({ id, title, tag: _tag, children }: SectionShellProps) {
   return (
-    <section id={id} className="neo-section neo-scroll-slide scroll-mt-32 sm:scroll-mt-36">
-      <span className="section-tag">{tag}</span>
+    <section id={id} data-tag={_tag} className="neo-section neo-scroll-slide scroll-mt-32 sm:scroll-mt-36">
       <h2 className="neo-heading">
         <span className="neo-heading-reveal">{title}</span>
       </h2>

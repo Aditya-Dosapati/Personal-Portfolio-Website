@@ -4,7 +4,7 @@ import { SectionShell } from "@/components/ui/SectionShell";
 export function TimelineSection() {
   return (
     <SectionShell id="timeline" tag="journey" title="Timeline">
-      <p className="neo-intro-strip w-fit bg-cyan-300">A focused path from fundamentals to real-world systems</p>
+      <p className="neo-intro-strip w-fit bg-white">A focused path from fundamentals to real-world systems</p>
 
       <div className="relative border-4 border-black bg-white p-8 sm:p-10 shadow-[10px_10px_0_0_#000]">
         <div className="absolute bottom-8 left-10 top-8 w-1 bg-black" aria-hidden="true" />

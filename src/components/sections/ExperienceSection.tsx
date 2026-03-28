@@ -10,11 +10,11 @@ export function ExperienceSection() {
       {portfolio.experience.map((item) => (
         <BrutalCard key={item.company} tone="white" className="grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-start">
           <div>
-            <p className="inline-block border-2 border-black bg-yellow-300 px-2 py-1 font-mono text-[10px] uppercase tracking-wider">
+            <p className="inline-block border-2 border-black bg-red-300 px-2 py-1 font-mono text-[10px] uppercase tracking-wider">
               {item.period}
             </p>
             <h3 className="mt-4 text-4xl leading-[0.9] sm:text-[2.9rem]">{item.company}</h3>
-            <p className="mt-3 border-2 border-black bg-cyan-300 p-3 font-mono text-xs uppercase">{item.role}</p>
+            <p className="mt-3 border-2 border-black bg-yellow-300 p-3 font-mono text-xs uppercase">{item.role}</p>
             <p className="mt-5 font-mono text-sm leading-relaxed sm:text-[0.96rem]">{item.focus}</p>
           </div>
 

@@ -6,7 +6,7 @@ import { SectionShell } from "@/components/ui/SectionShell";
 export function ProjectsSection() {
   return (
     <SectionShell id="projects" tag="work" title="Projects">
-      <p className="neo-intro-strip w-fit bg-red-300">From problem framing to shipped solution</p>
+      <p className="neo-intro-strip w-fit bg-white">From problem framing to shipped solution</p>
 
       <div className="neo-grid-2">
         {portfolio.projects.map((project, index) => (

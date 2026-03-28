@@ -59,7 +59,7 @@ export const portfolio = {
   profile: {
     status: "Open to internships and impactful collaborations",
     education: "B.Tech CSE (AI & ML), GMR Institute of Technology",
-    metric: "CGPA 8.17",
+    metric: "CGPA 8.48",
     location: "Andhra Pradesh, India",
   },
   about:
@@ -79,7 +79,7 @@ export const portfolio = {
   skills: [
     {
       title: "Programming",
-      items: ["Python", "C", "Java", "JavaScript", "Dart"],
+      items: ["Python", "C", "Java", "Dart"],
       tone: "yellow",
     },
     {
@@ -100,12 +100,13 @@ export const portfolio = {
   ] as SkillCategory[],
   projects: [
     {
-      title: "Cardio Check Health App",
-      problem: "People struggle to interpret raw cardiovascular health data and identify early risk patterns.",
+      title: "Quantum Accelerated Pattern Matching",
+      problem:
+        "Classical pattern matching can become computationally expensive as dataset size and pattern complexity increase.",
       solution:
-        "Built a Flask + Machine Learning health analytics app that turns user metrics into understandable risk insights and AI suggestions.",
-      stack: ["Flask", "Python", "Machine Learning", "Health Analytics"],
-      link: "https://github.com/Aditya-Dosapati",
+        "Built a quantum-assisted workflow using hybrid quantum-classical techniques to speed up candidate matching and improve efficiency.",
+      stack: ["Python", "Qiskit", "Quantum Computing", "Pattern Matching"],
+      link: "https://github.com/Aditya-Dosapati/Quantum-Assisted-Pattern-Matching",
     },
     {
       title: "MargSathi",
@@ -113,23 +114,24 @@ export const portfolio = {
       solution:
         "Engineered a Flutter app with IoT + Mapbox to deliver smart navigation, parking prediction, and practical city mobility support.",
       stack: ["Flutter", "Dart", "IoT", "Mapbox", "Firebase"],
-      link: "https://github.com/Aditya-Dosapati",
+      link: "https://github.com/Aditya-Dosapati/MargSathi-Mobile-Layer",
     },
     {
-      title: "Weather App",
-      problem: "Users need fast weather updates in a clean mobile-first format without dashboard complexity.",
+      title: "Qryptic-Trans",
+      problem:
+        "Traditional OTP flows and encryption utilities can be predictable or traceable, creating security and privacy risks for sensitive communication.",
       solution:
-        "Developed a Dart-based weather app showing city conditions, humidity, wind speed, and pressure in a clear experience.",
-      stack: ["Dart", "Flutter", "API Integration"],
-      link: "https://github.com/Aditya-Dosapati",
+        "Built a QRNG-based Dart application that generates non-traceable OTPs and supports encryption-driven secure transfer workflows.",
+      stack: ["Dart", "Flutter", "QRNG", "OTP Security", "Encryption"],
+      link: "https://github.com/Aditya-Dosapati/Qryptic-Trans",
     },
     {
-      title: "GitHub Experiments",
-      problem: "Learning in AI and software requires continuous experimentation across multiple domains.",
+      title: "Cardiocheck Heart Health App",
+      problem: "People struggle to interpret raw cardiovascular health data and identify early risk patterns.",
       solution:
-        "Maintain practical mini-builds and explorations on GitHub to test ideas, iterate quickly, and sharpen engineering depth.",
-      stack: ["ML Experiments", "Web", "Automation", "Rapid Prototyping"],
-      link: "https://github.com/Aditya-Dosapati",
+        "Built a Flask + Machine Learning health analytics app that turns user metrics into understandable risk insights and AI suggestions.",
+      stack: ["Flask", "Python", "Machine Learning", "Health Analytics"],
+      link: "https://github.com/Aditya-Dosapati/Cardiocheck-Heart-Health-App",
     },
   ] as Project[],
   experience: [
@@ -148,13 +150,18 @@ export const portfolio = {
   timeline: [
     {
       year: "2022",
+      title: "Started Coding Journey",
+      detail: "Began exploring programming with Python and C, building a foundation in coding logic and problem-solving.",
+    },
+    {
+      year: "2023",
       title: "Started Machine Learning",
       detail: "Began focused study on ML fundamentals and model-building workflows.",
     },
     {
-      year: "2023",
-      title: "Built Early ML Apps",
-      detail: "Shipped initial app ideas with practical ML-driven features.",
+      year: "2024",
+      title: "Built Early Mobile Apps",
+      detail: "Shipped initial app ideas with practical features.",
     },
     {
       year: "2025",
@@ -162,16 +169,16 @@ export const portfolio = {
       detail: "Gained machine learning exposure in a professional environment.",
     },
     {
-      year: "2025",
+      year: "2026",
       title: "Advanced Projects",
       detail: "Delivered stronger real-world work such as Cardio Check and MargSathi.",
     },
   ] as TimelineItem[],
   achievements: [
     {
-      title: "Class Representative",
-      detail: "Led communication and coordination between faculty and students.",
-      tone: "yellow",
+      title: "Department SPOC",
+      detail: "Served as Department SPOC for STEPCONE-2026, coordinating multiple events,through effective communication and leadership.",
+      tone: "white",
     },
     {
       title: "Rajya Puraskar",
@@ -212,20 +219,20 @@ export const portfolio = {
   ] as Certification[],
   exploring: [
     {
-      title: "AI + Healthcare",
-      detail: "Decision-support systems and personalized health intelligence.",
+      title: "Mobile Applications",
+      detail: "Building practical apps that solve real user problems and ship impact.",
     },
     {
-      title: "IoT Systems",
-      detail: "Connected sensing pipelines for real-time user value.",
-    },
-    {
-      title: "Smart Routing",
-      detail: "Efficient mobility logic with context-aware route decisions.",
+      title: "Web Design",
+      detail: "Crafting engaging, user-friendly web experiences with a focus on performance and aesthetics.",
     },
     {
       title: "Applied ML",
       detail: "From model output to product-ready user impact.",
+    },
+    {
+      title: "AI + Healthcare",
+      detail: "Decision-support systems and personalized health intelligence.",
     },
   ] as ExplorationItem[],
   github: {

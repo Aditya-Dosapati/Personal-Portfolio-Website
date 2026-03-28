@@ -11,7 +11,6 @@ import { SkillsSection } from "@/components/sections/SkillsSection";
 import { TimelineSection } from "@/components/sections/TimelineSection";
 import { DecorativeLayer, SectionDivider } from "@/components/ui/DecorativeLayer";
 import { NeoLinkButton } from "@/components/ui/NeoLinkButton";
-import { portfolio } from "@/data/portfolio";
 
 type GitHubRepo = {
   id: number;
@@ -25,7 +24,7 @@ type GitHubRepo = {
 async function getGithubRepos(): Promise<GitHubRepo[]> {
   try {
     const response = await fetch(
-      "https://api.github.com/users/Aditya-Dosapati/repos?sort=updated&per_page=6",
+      "https://api.github.com/users/Aditya-Dosapati/repos?sort=updated&per_page=100",
       {
         headers: { Accept: "application/vnd.github+json" },
         next: { revalidate: 3600 },
@@ -51,6 +50,15 @@ export default async function Home() {
     red: "bg-red-300",
     yellow: "bg-yellow-300",
   } as const;
+  const topNavItems = [
+    { label: "Skills", href: "#skills", tone: "white" },
+    { label: "Projects", href: "#projects", tone: "red" },
+    { label: "Experience", href: "#experience", tone: "cyan" },
+    { label: "Achievements", href: "#achievements", tone: "yellow" },
+    { label: "Certifications", href: "#certifications", tone: "white" },
+    { label: "GitHub", href: "#github", tone: "red" },
+    { label: "Contact", href: "#contact", tone: "cyan" },
+  ] as const;
 
   return (
     <main className="mx-auto w-full max-w-[94rem] px-4 py-10 sm:px-8 sm:py-14 lg:px-14 lg:py-16">
@@ -58,10 +66,9 @@ export default async function Home() {
 
       <div className="neo-topbar relative border-4 border-black bg-yellow-300 p-4 sm:p-5 shadow-[12px_12px_0_0_#000]">
         <div className="neo-noise absolute inset-0 opacity-20" aria-hidden="true" />
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-5">
-          <p className="neo-kicker">Aditya Dosapati // Portfolio</p>
-          <nav className="flex flex-wrap gap-2.5 sm:gap-3">
-            {portfolio.navigation.map((item) => (
+        <div className="relative z-10">
+          <nav className="flex w-full flex-wrap justify-center gap-2.5 sm:gap-3">
+            {topNavItems.map((item) => (
               <NeoLinkButton
                 key={item.label}
                 href={item.href}
@@ -91,7 +98,7 @@ export default async function Home() {
         <ContactSection />
       </div>
 
-      <footer className="neo-frame mt-20 p-6 text-center font-mono text-xs uppercase tracking-[0.19em] sm:mt-24 sm:text-sm">
+      <footer className="neo-frame mt-20 bg-yellow-300 p-6 text-center font-mono text-xs uppercase tracking-[0.19em] text-black sm:mt-24 sm:text-sm">
         Built with Next.js, React, and TailwindCSS
       </footer>
     </main>

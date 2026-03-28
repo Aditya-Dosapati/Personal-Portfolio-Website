@@ -11,15 +11,9 @@ export function HeroSection() {
     <section id="home" className="neo-frame relative overflow-hidden p-7 sm:p-12 lg:p-16">
       <div className="hero-grid absolute inset-0 opacity-30" aria-hidden="true" />
       <div className="neo-noise absolute inset-0 opacity-20" aria-hidden="true" />
-      <span className="section-tag pulse-tape">intro</span>
 
-      <div className="pointer-events-none absolute -left-6 top-8 h-24 w-24 border-4 border-black bg-yellow-300" />
-      <div className="pointer-events-none absolute right-8 top-14 h-16 w-16 border-4 border-black bg-cyan-300" />
-      <div className="pointer-events-none absolute -bottom-3 right-16 h-20 w-20 border-4 border-black bg-red-300" />
-
-      <div className="neo-scroll-reveal relative z-10 grid gap-12 lg:grid-cols-[1fr_340px] lg:gap-14">
+      <div className="neo-hero-shell relative z-10 grid gap-12 lg:grid-cols-[1fr_340px] lg:gap-14">
         <div className="max-w-4xl">
-          <p className="neo-kicker">Aditya Dosapati // Portfolio</p>
           <h1 className="mt-5 -rotate-[0.8deg] text-6xl leading-[0.82] sm:text-8xl lg:text-[7.1rem]">
             <span className="block overflow-hidden">
               <span className="neo-line-reveal">{firstName}</span>
@@ -35,7 +29,7 @@ export function HeroSection() {
             {portfolio.statement}
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-3.5 sm:gap-4">
+          <div className="neo-hero-buttons mt-10 flex flex-wrap gap-3.5 sm:gap-4">
             <NeoLinkButton href="#projects" className="bg-cyan-300 px-7 py-3.5 text-[11px] tracking-[0.14em] sm:text-sm">
               View Projects
             </NeoLinkButton>
@@ -63,8 +57,8 @@ export function HeroSection() {
         </aside>
       </div>
 
-      <div className="neo-scroll-reveal relative z-10 mt-10 border-4 border-black bg-black p-2">
-        <div className="overflow-hidden whitespace-nowrap bg-white py-2 font-mono text-xs uppercase tracking-widest sm:text-sm">
+      {/* <div className="neo-scroll-reveal relative z-10 mt-10 border-4 border-black bg-black p-2">
+        <div className="overflow-hidden whitespace-nowrap border-2 border-black bg-[#fffdf7] py-2 font-mono text-xs font-extrabold uppercase tracking-[0.2em] text-[#050505] sm:text-sm">
           <div className="neo-marquee">
             <span className="inline-block pr-8">Machine Learning</span>
             <span className="inline-block pr-8">AI Systems</span>
@@ -76,7 +70,7 @@ export function HeroSection() {
             <span className="inline-block pr-8">Real World Problem Solving</span>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

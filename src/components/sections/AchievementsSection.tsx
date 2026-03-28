@@ -5,7 +5,7 @@ import { SectionShell } from "@/components/ui/SectionShell";
 export function AchievementsSection() {
   return (
     <SectionShell id="achievements" tag="highlights" title="Achievements">
-      <p className="neo-intro-strip w-fit bg-yellow-300">Leadership, consistency, and execution beyond coursework</p>
+      <p className="neo-intro-strip w-fit bg-white">Leadership, consistency, and execution beyond coursework</p>
 
       <div className="neo-grid-3">
         {portfolio.achievements.map((achievement, index) => (
