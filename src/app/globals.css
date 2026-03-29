@@ -450,6 +450,90 @@ footer.neo-frame {
   }
 }
 
+@keyframes boot-line-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes boot-cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes boot-overlay-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-3%);
+    visibility: hidden;
+  }
+}
+
+@keyframes boot-flicker {
+  0%,
+  100% {
+    opacity: 0.08;
+  }
+  50% {
+    opacity: 0.025;
+  }
+}
+
+@keyframes boot-ready-glitch {
+  0% {
+    text-shadow: -1px 0 #51ccc2;
+  }
+  45% {
+    text-shadow: 1px 0 #f4c94f;
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes boot-glitch-flash {
+  0%,
+  100% {
+    filter: none;
+  }
+  35% {
+    filter: contrast(1.2) brightness(1.15);
+  }
+  70% {
+    filter: contrast(0.9) brightness(1.03);
+  }
+}
+
+@keyframes boot-panel-glitch {
+  0% {
+    transform: translate(0, 0);
+  }
+  30% {
+    transform: translate(-4px, 0);
+  }
+  60% {
+    transform: translate(4px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 .font-mono {
   font-family: var(--font-mono), "Courier New", monospace;
 }
@@ -462,6 +546,151 @@ footer.neo-frame {
 
 .neo-topbar {
   margin-bottom: var(--space-2xl);
+}
+
+.boot-content-hidden {
+  opacity: 0;
+}
+
+.boot-content-visible {
+  opacity: 1;
+  transition: opacity 280ms linear;
+}
+
+.boot-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 1.2rem;
+  background: #0a0a0a;
+  color: #ffffff;
+  isolation: isolate;
+}
+
+.boot-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.015);
+  animation: boot-flicker 260ms linear infinite;
+}
+
+.boot-overlay-flash {
+  background: #ffffff;
+}
+
+.boot-overlay-fade {
+  animation: boot-overlay-exit 320ms linear forwards;
+}
+
+.boot-overlay-glitch {
+  animation: boot-glitch-flash 120ms linear 1;
+}
+
+.boot-panel {
+  position: relative;
+  z-index: 2;
+  width: min(92vw, 56rem);
+  border: 4px solid #ffffff;
+  background: #0a0a0a;
+  padding: 1rem 1rem 1.1rem;
+  box-shadow: 12px 12px 0 0 #000000;
+}
+
+.boot-panel-glitch {
+  animation: boot-panel-glitch 140ms steps(1, end) 1;
+}
+
+.boot-kicker {
+  margin-bottom: 0.7rem;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #f4c94f;
+}
+
+.boot-log-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-height: 7.7rem;
+  margin-bottom: 0.9rem;
+}
+
+.boot-log-line {
+  font-size: clamp(0.82rem, 1.2vw, 1rem);
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
+  animation: boot-line-in 180ms linear both;
+}
+
+.boot-ready-line {
+  color: #51ccc2;
+  animation: boot-line-in 180ms linear both, boot-ready-glitch 180ms linear 1;
+}
+
+.boot-prompt {
+  color: #f4c94f;
+  margin-right: 0.35rem;
+}
+
+.boot-cursor {
+  display: inline-block;
+  width: 0.62ch;
+  height: 1em;
+  margin-left: 0.3rem;
+  background: #ffffff;
+  vertical-align: -0.12em;
+  animation: boot-cursor-blink 520ms steps(1, end) infinite;
+}
+
+.boot-progress-block {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.boot-progress-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #51ccc2;
+}
+
+.boot-progress-value {
+  font-size: 0.94rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.boot-progress-track {
+  height: 0.95rem;
+  border: 3px solid #ffffff;
+  background: #0a0a0a;
+}
+
+.boot-progress-fill {
+  height: 100%;
+  background: #f4c94f;
+  transition: width 160ms linear;
+}
+
+.boot-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.035) 0,
+    rgba(255, 255, 255, 0.035) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  opacity: 0.17;
 }
 
 a:focus-visible,

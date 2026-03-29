@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bungee, Space_Mono } from "next/font/google";
+import { BootLoaderGate } from "@/components/ui/BootLoaderGate";
 import "./globals.css";
 
 const siteUrl = "https://aditya-dosapati.github.io/Personal-Portfolio-Website";
@@ -63,7 +64,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${displayFont.variable} ${monoFont.variable} h-full`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <BootLoaderGate>{children}</BootLoaderGate>
+      </body>
     </html>
   );
 }

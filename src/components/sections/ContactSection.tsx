@@ -15,20 +15,20 @@ export function ContactSection() {
     {
       label: "GitHub",
       href: portfolio.contact.github,
-      className: "bg-yellow-300",
+      className: "bg-white",
       external: true,
     },
     {
       label: "LinkedIn",
       href: portfolio.contact.linkedin,
-      className: "bg-zinc-900",
+      className: "bg-red-300",
       external: true,
     },
   ].filter(Boolean) as { label: string; href: string; className: string; external: boolean }[];
 
   return (
     <SectionShell id="contact" tag="contact" title="Contact">
-      <div className="relative border-4 border-black bg-white p-7 sm:p-8 shadow-[8px_8px_0_0_#000]">
+      <div className="relative border-4 border-black bg-zinc-900 p-7 sm:p-8 shadow-[8px_8px_0_0_#000]">
         <div className="neo-noise absolute inset-0 opacity-20" aria-hidden="true" />
         <p className="relative max-w-4xl text-4xl leading-[0.9] sm:text-6xl">Let&apos;s build something impactful</p>
 
